@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cleanup_log_file="/tmp/script.log"
+cleanup_log_file="/tmp/miav_launch.log"
 rm -f "$cleanup_log_file"
 
 # Function to kill child processes when the script exits
@@ -18,8 +18,6 @@ cleanup() {
 
 # Set the cleanup function to be called on script exit, terminal close or termination
 trap cleanup EXIT SIGHUP SIGTERM SIGINT
-
-source ~/projects/miav/install/setup.bash
 
 setsid bash -c "source ~/projects/miav/install/setup.bash; ros2 run rclcpp_components component_container_mt --ros-args -r __node:=sensing_component_container" &
 SID=$!

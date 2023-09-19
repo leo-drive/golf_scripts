@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cleanup_log_file="/tmp/script.log"
+cleanup_log_file="/tmp/miav_launch.log"
 rm -f "$cleanup_log_file"
 
 # Function to kill child processes when the script exits
