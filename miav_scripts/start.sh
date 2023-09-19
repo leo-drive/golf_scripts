@@ -18,7 +18,7 @@ function run_in_tab() {
   local cmd1="bash -c $1"
   local script_name=$(basename "$1")  # Extract the script's name for the tab title
 
-  mate-terminal --tab --title="$script_name" --command="bash -ic 'echo $cmd1 >> $HOME/.bash_history; trap bash SIGINT; $cmd1 ; bash'"
+  mate-terminal --tab --title="$script_name" --command="bash -ic 'echo $cmd1 >> $HOME/.bash_history; $cmd1 ; bash'"
 }
 
 for path_script in "${array_path_scripts[@]}"; do
